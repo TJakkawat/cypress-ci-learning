@@ -21,3 +21,12 @@ jobs:
 
       - name: Run Cypress
         run: npx cypress run
+
+      - name: Notify Discord on Failure
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+            "content": "❌ Cypress Test Failed\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nRun: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }' \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
