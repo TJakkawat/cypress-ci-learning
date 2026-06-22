@@ -17,6 +17,6 @@ describe("Google Search", () => {
       .type("Cypress Testing");
 
     cy.get("textarea[name='q']")
-      .should("have.value", "Not SCypress Testing");
+      .should("have.value", "Cypress Testing");
   });
 });
