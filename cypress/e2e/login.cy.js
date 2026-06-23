@@ -1,6 +1,6 @@
 describe("Login Demo", () => {
   beforeEach(() => {
-    cy.visit("app/index.html");
+    cy.visit("https://tjakkawat.github.io/demo-web-app/app");
   });
 
   it("should login successfully", () => {
